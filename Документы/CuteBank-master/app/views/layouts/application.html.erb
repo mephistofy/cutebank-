@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <% if user_signed_in? %>
+  <div id="container">
+
+  <div id="header">
+    <div class="fon-head">
+
+
+      <nav>
+        <div class="logo-box">
+          <h1 class="logo">
+            <a href="/">
+              <img src="/assets/logo-head.svg">
+            </a>
+          </h1>
+        </div>
+        <ul>
+          <li>
+            <%= link_to image_tag('/assets/icon-in.svg') + "Log out", destroy_user_session_path, method: :delete, class: "nav-link text-nowrap" %>
+          </li>
+        </ul>
+      </nav>
+
+
+    </div>
+  </div>
+
+  <% else %>
+<div id="container">
+
+  <div id="header">
+    <div class="fon-head">
+
+
+      <nav>
+        <div class="logo-box">
+          <h1 class="logo">
+            <a href="/">
+              <img src="/assets/logo-head.svg">
+            </a>
+          </h1>
+        </div>
+        <ul>
+          <li>
+            <%= link_to image_tag('/assets/icon-reg.svg') + "Registration", new_user_registration_path %>
+            <div class="border-reg"></div>
+          </li>
+          <li>
+            <%= link_to image_tag('/assets/icon-in.svg') + "Sign in", new_user_session_path %>
+          </li>
+          <li><a href="#"><img src="/assets/icon-lan.svg">Ru</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+  </div>
+<% end %>
+    <%= yield %>
+  </body>
+</html>

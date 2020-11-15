@@ -1,0 +1,26 @@
+<h1> admin page </h1>
+
+<div>
+<%= @cash.cash_amount%>
+</div>
+<div>
+<%= form_for :admin, :url => {:controller => :admin, :action => :index} do |f| %>
+    <% if @cash.errors.any? %>
+      <% @cash.errors.full_messages.each do |msg| %>
+        <div class= "alertCash ">
+          <%= msg%>
+        </div>
+      <% end %>
+    <% end %>
+    <p >
+      Set cash machine money amount  <br>
+      <%= f.text_field :cash_amount %>
+    </p>
+
+    <p >
+    <%= f.submit 'Submit'%>
+
+    </p>
+
+  <%end%>
+</div>

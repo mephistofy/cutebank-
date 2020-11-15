@@ -1,0 +1,59 @@
+<html>
+
+<head>
+  <title>CuteBank - Registrations</title>
+
+  <%= stylesheet_link_tag "Registrations.css" %>
+
+</head>
+
+<body>
+
+<div id="container">
+
+  <div class="logo-box">
+    <h1 class="logo">
+      <a href="/">
+        <img src="/assets/logo-head.svg">
+      </a>
+    </h1>
+  </div>
+
+  <div class="form-reg">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter login" %>
+      </div>
+
+      <div class="field">
+
+        <% if @minimum_password_length %>
+
+        <% end %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Enter a password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign in" %>
+
+    <% end %>
+
+    </div>
+
+    <a href="/"><div class="back">
+      Back
+    </div></a>
+
+  </div>
+
+
+</div>
+
+
+
+</body>
+
+</html>
